@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조효순 | AI·스마트 미디어 교육 전문가 포트폴리오</title>
+    <meta name="description" content="AI의 복잡함을 일상의 편리함으로 바꾸는 스마트 교육. 조효순 강사의 포트폴리오입니다.">
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --bg-color: #0F0F0F;
+            --bg-lighter: #1A1A1A;
+            --bg-card: #222222;
+            --primary: #00D4FF;
+            --accent: #00FF88;
+            --text-main: #FFFFFF;
+            --text-sub: #A0A0A0;
+            --border-color: #333333;
+            --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            scroll-behavior: smooth;
+        }
+
+        /* 텍스트 드래그 색상 */
+        ::selection {
+            background-color: var(--primary);
+            color: var(--bg-color);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        /* 네비게이션바 */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* 공통 섹션 스타일 */
+        section {
+            padding: 8rem 5% 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before {
+            content: '>';
+            color: var(--accent);
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* Hero 섹션 */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5rem;
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .terminal-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p.slogan {
+            font-size: 1.5rem;
+            color: var(--text-sub);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            word-break: keep-all;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-mono);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-color);
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(0, 255, 136, 0.1);
+        }
+
+        .hero-image {
+            flex: 0.8;
+            position: relative;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            filter: grayscale(20%) contrast(1.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            /* 모던한 글래스모피즘 효과 추가 */
+            border: 1px solid rgba(255,255,255,0.1); 
+        }
+
+        /* Achievements (숫자 성과) 섹션 */
+        .achievements {
+            background-color: var(--bg-lighter);
+            padding: 4rem 5%;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: var(--font-mono);
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        /* Expertise 섹션 */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: var(--bg-card);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-icon {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Experience 섹션 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 2px;
+            background: rgba(0, 212, 255, 0.2);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            color: var(--main-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-subtitle {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* About 섹션 */
+        .about-content {
+            background: var(--bg-lighter);
+            padding: 4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ddd;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Contact 섹션 */
+        .contact {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .contact-box {
+            background: linear-gradient(145deg, var(--bg-card) 0%, var(--bg-lighter) 100%);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .contact-item i {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+        }
+
+        /* 애니메이션 유틸리티 */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 반응형 */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 150px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                width: 80%;
+            }
+            
+            .hero-image::before {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            nav ul {
+                display: none; /* 모바일에서는 일단 숨김 - 필요시 햄버거 메뉴 구현 */
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            section {
+                padding: 5rem 5% 3rem;
+            }
+            .timeline-content {
+                padding: 1.5rem;
+            }
+            .about-content {
+                padding: 2rem;
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CHO_<span>HYOSUN</span></div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="about">
+        <div class="hero-content fade-up">
+            <span class="terminal-badge">✨ 누구나 쉽게 배우는 AI·스마트 미디어_</span>
+            <h1>조효순<br><span class="highlight">AI·스마트 미디어</span> 교육 전문가</h1>
+            <p class="slogan">"AI의 복잡함을 일상의 편리함으로 바꾸는 스마트 교육"</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary"><i data-lucide="mail"></i> 강의 문의하기</a>
+                <a href="#experience" class="btn btn-outline"><i data-lucide="terminal"></i> 경력 확인</a>
+            </div>
+        </div>
+        <div class="hero-image fade-up" style="transition-delay: 0.2s;">
+            <!-- REPLACE: 사용자가 업로드한 프로필 사진으로 교체. 현재 폴더에 profile.jpg 이름으로 저장하세요 -->
+            <!-- 이 placeholder 이미지는 사용자의 얼굴을 돋보이게 모던한 프레임 안에 배치됩니다. -->
+            <img src="profile.jpg" alt="조효순 강사 프로필" onerror="this.src='https://via.placeholder.com/600x800/222/00D4FF?text=Profile+Image'">
+        </div>
+    </section>
+
+    <!-- 실적 데이터 섹션 -->
+    <div class="achievements">
+        <div class="stats-grid">
+            <div class="stat-item fade-up">
+                <h3 class="counter" data-target="20">0</h3>
+                <p>출강 기관 (곳)</p>
+            </div>
+            <div class="stat-item fade-up" style="transition-delay: 0.1s;">
+                <h3 class="counter" data-target="5">0</h3>
+                <p>강의 경력 (년)</p>
+            </div>
+            <div class="stat-item fade-up" style="transition-delay: 0.2s;">
+                <h3><span class="counter" data-target="1000">0</span>+</h3>
+                <p>누적 강의 시간 (시간)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 전문 분야 -->
+    <section id="expertise">
+        <h2 class="section-title fade-up">Core Expertise</h2>
+        <div class="expertise-grid">
+            <div class="expertise-card fade-up">
+                <i data-lucide="bot" class="expertise-icon" width="40" height="40"></i>
+                <h3>AI 활용 및 업무 자동화</h3>
+                <p>생성형 AI(ChatGPT 등)를 활용하여 나만의 비서 만들기, 프롬프트 엔지니어링 및 업무 효율성을 극대화하는 노하우를 전수합니다.</p>
+            </div>
+            <div class="expertise-card fade-up" style="transition-delay: 0.1s;">
+                <i data-lucide="smartphone" class="expertise-icon" width="40" height="40"></i>
+                <h3>디지털 리터러시 강화</h3>
+                <p>스마트폰의 AI 기능 활용부터 실생활 키오스크 사용법까지, 기초부터 탄탄하게 남녀노소 누구나 쉽게 배우는 스마트 라이프 교육.</p>
+            </div>
+            <div class="expertise-card fade-up" style="transition-delay: 0.2s;">
+                <i data-lucide="layout-template" class="expertise-icon" width="40" height="40"></i>
+                <h3>시각화 자료 및 디자인</h3>
+                <p>캔바(Canva)를 활용한 전문성 있는 프레젠테이션 디자인, 상세페이지, 포스터 등 다양한 시각 자료 제작 입문 및 심화.</p>
+            </div>
+            <div class="expertise-card fade-up" style="transition-delay: 0.3s;">
+                <i data-lucide="video" class="expertise-icon" width="40" height="40"></i>
+                <h3>영상 편집 및 미디어 코칭</h3>
+                <p>캡컷(CapCut) 등 직관적인 툴을 활용해 브이로그부터 숏폼(릴스, 쇼츠)까지 트렌디한 영상 콘텐츠를 직접 기획하고 편집합니다.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="philosophy">
+        <h2 class="section-title fade-up">Philosophy</h2>
+        <div class="about-content fade-up">
+            <p><strong>"기술은 누구에게나 친절해야 합니다."</strong></p>
+            <p>급변하는 AI 시대 속에서 누군가는 기술의 편리함을 누리고, 누군가는 두려움을 느낍니다. 저는 복잡해 보이는 AI 기술과 스마트 기기를 일상의 언어로 풀어내어, 수강생들의 진입 장벽을 낮추는 역할을 합니다.</p>
+            <p>비즈니스 실무자에게는 '업무 시간을 절반으로 줄여주는 효율성'을, 일상 사용자에게는 '스스로 해내는 즐거움과 자신감'을 선사합니다.</p>
+        </div>
+    </section>
+
+    <!-- 강의 경력 밒 이력 -->
+    <section id="experience">
+        <h2 class="section-title fade-up">Experience Matrix</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">AI 활용 비서 만들기</h3>
+                    <p class="timeline-subtitle">광명 디지털혁신센터</p>
+                    <p>생성형 AI 툴을 실무에 적용하여 문서 작성, 기획 등 업무 속도를 향상시키고 나만의 맞춤형 비서를 구축하는 역량 강화 강의</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">스마트폰 AI 활용, 기초부터 영상까지</h3>
+                    <p class="timeline-subtitle">광명 학온동</p>
+                    <p>스마트폰 기본 사용법부터 스마트폰 속의 AI 인공지능 기능 탐구, 그리고 일상을 기록하는 영상 편집까지 종합적인 미디어 활성 교육</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">스마트한 일상, 기초부터 키오스크 활용</h3>
+                    <p class="timeline-subtitle">강서구 화곡본동</p>
+                    <p>디지털 소외계층을 위한 생활 밀착형 스마트 기기 교육. 무인 단말기(키오스크) 실습 및 스마트폰 필수 앱 활용법 지도</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">맞춤형 디지털 콘텐츠 크리에이티브</h3>
+                    <p class="timeline-subtitle">기타 다수 기관 출강</p>
+                    <p>Canva를 이용한 시각화 디자인 교육, CapCut 활용 짧은 영상(숏폼) 제작 프로젝트 진행강사</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 -->
+    <section id="contact" class="contact">
+        <h2 class="section-title fade-up">Connect System</h2>
+        <div class="fade-up contact-box">
+            <h3>강의 및 컨설팅 문의</h3>
+            <p style="color: var(--text-sub);">AI 교육 트렌드와 기관의 성격에 맞춘 최적화된 커리큘럼을 제안해 드립니다.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i data-lucide="mail"></i> jhs1175@gmail.com
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="phone"></i> 010-2755-1175
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 조효순. All Rights Reserved. | AI & Media Education</p>
+    </footer>
+
+    <script>
+        // 아이콘 렌더링
+        lucide.createIcons();
+
+        // 스크롤 페이드 애니메이션 (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // 숫자 카운터 애니메이션 활성화 기능
+                    if(entry.target.classList.contains('achievements') || entry.target.closest('.achievements')) {
+                         runCounters();
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach((elem) => {
+            observer.observe(elem);
+        });
+
+        // 숫자 카운트업 함수
+        let countersRun = false;
+        function runCounters() {
+            if (countersRun) return;
+            countersRun = true;
+            
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // 카운트 애니메이션 속도 조절
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    
+                    const inc = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+    </script>
+</body>
+</html>
